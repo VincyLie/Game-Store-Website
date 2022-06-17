@@ -3,9 +3,9 @@
 <div class="row justify-content-center">
   <div class="column" style="height: 40rem">
       <div class="card mx-auto mb-xl-5 mt-xl-5" style="width:30rem;height:10rem;">
-            <h6 class="text-center">Add Category</h6>
+            <h6 class="text-center">Add Category Ethan Ganteng</h6>
             <div class="card-body">
-              <form action="/login" method="post">
+              <form action="/login" method="p ost">
                   @csrf
                   <div class="row">
                       <div class="col mx-0 mt-1 mb-3">
