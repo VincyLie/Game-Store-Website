@@ -5,7 +5,7 @@
       <div class="card mx-auto mb-xl-5 mt-xl-5" style="width:30rem;height:10rem;">
             <h6 class="text-center">Add Category</h6>
             <div class="card-body">
-              <form action="/login" method="post">
+              <form action="{{ route('category.store') }}" method="post">
                   @csrf
                   <div class="row">
                       <div class="col mx-0 mt-1 mb-3">
@@ -14,6 +14,7 @@
                   </div>
                   <div class=" d-flex justify-content-lg-start">
                     <button type="button" class="btn btn-dark">
+                        
                         Add Category
                     </button>
                   </div>
