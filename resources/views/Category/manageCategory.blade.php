@@ -1,5 +1,5 @@
-@include('navbar')
-@extends('main')
+@include('Navbar.navbar')
+@extends('Dashboard.main')
 @section('container')
     <div class="row justify-content-center text-start">
         <div class="container text-center m-3">

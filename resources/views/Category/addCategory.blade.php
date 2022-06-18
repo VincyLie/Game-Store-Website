@@ -1,4 +1,4 @@
-@extends('main')
+@extends('Dashboard.main')
 @section('container')
 <div class="row justify-content-center">
   <div class="column" style="height: 40rem">
