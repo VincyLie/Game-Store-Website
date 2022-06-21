@@ -10,67 +10,22 @@
     </div>
 </div>
 <div class="row justify-content-center">
+    @foreach($games as $game)
     <div class="col-md-2 m-1 mb-2">
         <div class="card" style="width:12.5rem;">
-            <img src="FreeFire.jpg" class="card-img-top" alt="...">
+            <img src="/assets/{{ $game->thumbnail }}" class="card-img-top" alt="...">
             <div class="card-body p-0">
-              <h6 class="card-title m-0">Free Fire</h6>
-              <div class="card-text text-small">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-              <h6 class="text-end">IDR 159.000</h6>
+              <h6 class="card-title m-0">{{ $game->title }}</h6>
+              <div class="card-text text-small">{{ $game->description }}</div>
+              <h6 class="text-end">{{ $game->price }}</h6>
             </div>
         </div>
     </div>
-    <div class="col-md-2 m-1 mb-2">
-        <div class="card" style="width:12.5rem;">
-            <img src="FreeFire.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-0">
-              <h6 class="card-title m-0">Free Fire</h6>
-              <div class="card-text text-small">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-              <h6 class="text-end">IDR 159.000</h6>
-            </div>
+    @endforeach
+    <div class="column d-flex justify-content-end">
+        <div class="mx-4">
+            {{$games->links()}}
         </div>
     </div>
-    <div class="col-md-2 m-1 mb-2">
-        <div class="card" style="width:12.5rem;">
-            <img src="FreeFire.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-0">
-              <h6 class="card-title m-0">Free Fire</h6>
-              <div class="card-text text-small">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-              <h6 class="text-end">IDR 159.000</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2 m-1 mb-2">
-        <div class="card" style="width:12.5rem;">
-            <img src="FreeFire.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-0">
-              <h6 class="card-title m-0">Free Fire</h6>
-              <div class="card-text text-small">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-              <h6 class="text-end">IDR 159.000</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-2 m-1 mb-2">
-        <div class="card" style="width:12.5rem;">
-            <img src="FreeFire.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-0">
-              <h6 class="card-title m-0">Free Fire</h6>
-              <div class="card-text text-small">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-              <h6 class="text-end">IDR 159.000</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 m-1 mb-2">
-        <div class="card" style="width:12.5rem;">
-            <img src="FreeFire.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-0">
-              <h6 class="card-title m-0">Free Fire</h6>
-              <div class="card-text text-small">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-              <h6 class="text-end">IDR 159.000</h6>
-            </div>
-        </div>
-    </div>
-    
-    
 </div>
 @endsection

@@ -23,6 +23,8 @@ Route::get('/logout', [LoginController::class,'Logout'])->middleware('auth');
 
 //Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index']);
+//Search
+Route::get('/dashboard/search', [DashboardController::class, 'search']);
 
 //Manage Category
 //Form Create Category

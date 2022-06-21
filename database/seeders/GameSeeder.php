@@ -53,6 +53,9 @@ class GameSeeder extends Seeder
             'thumbnail' => '1-thumbnail.jpg',
             'slides' => '1-image1.jpg,1-image2,1-image3',
             'description' => 'Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.'
-        ]]);
+        ]
+    
+    ]);
+        
     }
 }

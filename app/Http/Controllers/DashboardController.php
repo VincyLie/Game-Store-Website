@@ -24,4 +24,22 @@ class DashboardController extends Controller
             'games' => $games
         ]);
     }
+    public function search(Request $request){
+        $games = Game::where('title', 'LIKE', "%$request->title%")->paginate(3);
+        // $resSearch = Game::search($request->title)->paginate(15);
+        $user = Auth::check();
+        if ($user){
+            $role_id = Auth::user()->role_id;
+            $name = Auth::user()->name;
+        }else{
+            $role_id = '3';
+            $name = 'Guest';
+        }
+        return view('Dashboard.search',[
+            'role_id' => $role_id,
+            'name' => $name,
+            'user' => $user,
+            'games' => $games
+        ]);
+    }
 }
