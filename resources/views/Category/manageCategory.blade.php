@@ -11,7 +11,7 @@
         <div class="col col-md-11">        
           {{-- Card Cart --}}
           @foreach ($categories as $category)
-          <div class="d-flex bg-primary mb-1" style="height: 4rem">       
+          <div class="d-flex mb-1" style="height: 4rem">       
               <div class="container mt-4">
                 <h6 class="text-start">{{ $category->name }}</h6>
               </div>
