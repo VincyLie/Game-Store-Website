@@ -25,8 +25,8 @@ class DashboardController extends Controller
         ]);
     }
     public function search(Request $request){
+        //harusnya 15 
         $games = Game::where('title', 'LIKE', "%$request->title%")->paginate(3);
-        // $resSearch = Game::search($request->title)->paginate(15);
         $user = Auth::check();
         if ($user){
             $role_id = Auth::user()->role_id;
