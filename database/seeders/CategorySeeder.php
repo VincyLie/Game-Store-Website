@@ -15,19 +15,19 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::insert([[
-            'category' => 'Sandbox'
+            'name' => 'Sandbox'
         ],
         [
-            'category' => 'RTS'
+            'name' => 'RTS'
         ],
         [
-            'category' => 'Shooter'
+            'name' => 'Shooter'
         ],
         [
-            'category' => 'Sports'
+            'name' => 'Sports'
         ],
         [
-            'category' => 'RPG'
+            'name' => 'RPG'
         ]]);
     }
 }

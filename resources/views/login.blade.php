@@ -14,7 +14,7 @@
     <body>    
         <div class="row justify-content-center">
             <div class="column">
-                <div class="card mx-auto mb-xl-5 mt-xl-5" style="width:20rem;height:22rem;">
+                <div class="card mx-auto mb-xl-5 mt-xl-5" style="width:20rem;height:27rem;">
                     <div class="card-body">
                         <form action="/login" method="post">
                             @csrf
@@ -30,7 +30,15 @@
                                     <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                                 </div>
                             </div>
-                            <div class=" d-flex justify-content-center mb-3">
+                            @method('POST')
+                            @if ($errors->any())
+                                <div class="alert alert-danger" style="height: 45px">
+                                    @foreach ($errors->all() as $message)
+                                        {{ $message }}
+                                    @endforeach
+                                </div>
+                            @endif
+                            <div class=" d-flex justify-content-center mb-3 mt-5">
                                 <button class="btn btn-lg btn-dark" type="submit" style="width: 7rem; height:2.5rem;">
                                     <h6>Login</h6>
                                 </button>

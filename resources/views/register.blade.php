@@ -2,14 +2,15 @@
 @section('container')
 <div class="row justify-content-center">
   <div class="column">
-      <div class="card mx-auto mb-xl-5 mt-xl-5" style="width:20rem;height:29rem;">
+      <div class="card mx-auto mb-xl-5 mt-xl-5" style="width:20rem;height:32rem;">
           <div class="card-body">
-              <form action="/login" method="post">
+              <form action="/register" method="post">
                   @csrf
                   <div class="row">
                       <div class="col mx-0 mt-1 mb-3">
                           <h6>Name</h6>
                           <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" autofocus required value="{{ old('name') }}">
+                      
                       </div>
                   </div>
                   <div class="row">
@@ -27,20 +28,28 @@
                   <div class="row">
                       <div class="col mx-0 mt-0 mb-3">
                           <h6>Confirm Password</h6>
-                          <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                          <input type="password" name="confirmpassword" class="form-control" id="confirmpassword" placeholder="Password" required>
                       </div>
                   </div>
-                  <div class=" d-flex justify-content-center mb-3">
-                      <button class="btn btn-lg btn-dark" type="submit" style="width: 7rem; height:2.5rem;">
-                          <h6>Register</h6>
-                      </button>
-                  </div>
-                  <small class="d-block text-center mt-3 text-decoration-none">
-                      <a href="/login">Already Registered?</a>
-                  </small>
-              </form>
-          </div>
-      </div>
-  </div>
+                        @method('POST')
+                            @if ($errors->any())
+                                <div class="alert alert-danger" style="height: 45px">
+                                    @foreach ($errors->all() as $message)
+                                        {{ $message }}
+                                    @endforeach
+                                </div>
+                            @endif
+                    <div class=" d-flex justify-content-center mb-3">
+                        <button class="btn btn-lg btn-dark" type="submit" style="width: 7rem; height:2.5rem;">
+                            <h6>Register</h6>
+                        </button>
+                    </div>
+                    <small class="d-block text-center mt-2 text-decoration-none">
+                        <a href="/login">Already Registered?</a>
+                    </small>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
