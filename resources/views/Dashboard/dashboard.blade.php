@@ -14,12 +14,12 @@
             <div class="container">
               <div class="row">
                 @foreach ($games as $game)
-                  <div class="card m-1 mx-auto" style="width: 14rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                  <div class="card m-1 mx-auto" style="width: 14rem; min-height: 26rem; max-height: 30rem;">
+                    <img src="/assets/{{ $game->thumbnail }}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{$game->title}}</h5>
-                      <p class="card-text">{{$game->description}}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <p class="card-text" style="min-height: 11rem; max-height: 14rem">{{$game->description}}</p>
+                      <h6 class="text-end">{{ $game->price }}</h6>
                     </div>
                   </div>
                 @endforeach
@@ -32,7 +32,7 @@
           @foreach ($games as $game)
             <div class="d-flex col-md-11 mb-1 mx-auto" style="height: 4rem">
               <div class="d-flex" style="width: 16rem;height: 4rem;">
-                <img src="FreeFire.jpg" alt="" style="width: 100%;height:100%">
+                <img src="/assets/{{ $game->thumbnail }}" alt="" style="width: 100%;height:100%">
               </div>    
               <div class="container">
                 <h6 class="text-start">{{$game->title}}</h6>
