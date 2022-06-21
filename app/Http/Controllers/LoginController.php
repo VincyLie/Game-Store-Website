@@ -19,7 +19,7 @@ class LoginController extends Controller
             'confirmpassword' => 'required|same:password'
         ]);
         // $success['password'] = Hash::make($success['password']);
-        $success = User::create([
+        $success = User::insert([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
