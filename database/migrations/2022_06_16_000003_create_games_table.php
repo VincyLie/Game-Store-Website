@@ -20,7 +20,7 @@ class CreateGamesTable extends Migration
             $table->foreignId('category_id');
             $table->integer("price");
             $table->string("thumbnail");
-            $table->text("slides");
+            // $table->text("slides");
             $table->text("description");
             $table->timestamps();
         });
