@@ -40,12 +40,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
          //validate
-         $request->validate([
+        $validation = $request->validate([
             'name' => 'required|unique:categories',
         ]);
         //form request
-        $input = $request->all();
-        Category::create($input);
+        // $input = $request->all();
+        Category::create($validation);
         return redirect()->route('category.edit');
     }
 
@@ -73,7 +73,8 @@ class CategoryController extends Controller
         if ($user){
             $role = Auth::user()->role_id;
             $name = Auth::user()->name;
-        }else{
+        }
+        else{
             $role = '3';
             $name = 'Guest';
         }
@@ -95,14 +96,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validation = $request->validate([
             'name' => 'required|unique:categories'
         ]);
-        $Category = Category::find($id);
-        $Category->name = $request->name;
-        if ($Category->save()) {
-            return redirect()->route('category.edit')->with('success', 'Category updated successfully!');
-        } else {
+        $NewCategory = Category::find($id);
+        $NewCategory->name = $validation['name'];
+        if ($NewCategory->save()) {
+            return redirect()->route('category.edit');
+        } 
+        else {
             return redirect()->back()->with('error', 'Category updated failed!');
         }
     }
@@ -117,8 +119,9 @@ class CategoryController extends Controller
     {
         $Category = Category::find($id);
         if ($Category->delete()) {
-            return redirect()->route('category.edit')->with('success', 'Category deleted successfully!');
-        } else {
+            return redirect()->route('category.edit');
+        } 
+        else {
             return redirect()->back()->with('error', 'Category deleted failed!');
         }
     }

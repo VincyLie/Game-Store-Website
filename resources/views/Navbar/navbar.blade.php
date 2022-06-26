@@ -12,7 +12,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="detailMenu">
               <li><a class="dropdown-item" href="/category/edit">Manage Category</a></li>
-              {{-- <li><a class="dropdown-item" href="/logout">Manage Game</a></li> --}}
+              <li><a class="dropdown-item" href="/game/edit">Manage Game</a></li>
             </ul>
           @endif
         @endif
