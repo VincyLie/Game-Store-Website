@@ -8,6 +8,14 @@
                     <button class="btn btn-outline-dark" type="submit">Search</button>
                 </form>
             </div>
+            {{-- @method('POST') --}}
+            @if ($errors->any())
+                <div class="alert alert-danger" style="height: 45px">
+                    @foreach ($errors->all() as $message)
+                        {{ $message }}
+                    @endforeach
+                </div>
+            @endif
         </div>
         <div class="row justify-content-center">
             <h5 class="text-center">Featured Games</h5>
