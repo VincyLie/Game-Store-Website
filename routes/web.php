@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GameDetailController;
 use App\Http\Controllers\ManageGameController;
 
 /*
@@ -19,6 +20,7 @@ use App\Http\Controllers\ManageGameController;
 //Register and Login 
 Route::get('/register', [LoginController::class,'tampilanRegister']);
 Route::post('/register', [LoginController::class,'Register']);
+Route::get('/', [LoginController::class,'tampilanLogin']);
 Route::get('/login', [LoginController::class,'tampilanLogin']);
 Route::post('/login', [LoginController::class,'Login']);
 Route::get('/logout', [LoginController::class,'Logout'])->middleware('auth');
@@ -27,6 +29,8 @@ Route::get('/logout', [LoginController::class,'Logout'])->middleware('auth');
 Route::get('/dashboard', [DashboardController::class, 'index']);
 //Search
 Route::get('/dashboard/search', [DashboardController::class, 'search']);
+//GameDetail
+Route::get('gamedetail/{id}', [GameDetailController::class, 'index']);
 
 //Manage Category
 //Form Create Category
