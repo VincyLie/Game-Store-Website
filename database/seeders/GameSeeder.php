@@ -19,7 +19,7 @@ class GameSeeder extends Seeder
             'category_id' => 3,
             'price' => 119000,
             'thumbnail' => 'csgo.jpg',
-            // 'slides' => '1-image1.jpg,1-image2,1-image3',
+            'slides' => '1-image1.jpg,1-image2.jpg,1-image3.jpg',
             'description' => 'Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.'
         ],
         [
@@ -27,7 +27,7 @@ class GameSeeder extends Seeder
             'category_id' => 5,
             'price' => 78000,
             'thumbnail' => 'dungeon.jpg',
-            // 'slides' => '1-image1.jpg,1-image2,1-image3',
+            'slides' => '2-image1.jpg,2-image2.jpg,2-image3.jpg',
             'description' => 'Dungeons of Edera is a rogue-lite action RPG dungeon crawler featuring procedurally generated levels where you will battle through hordes of monsters.'
         ],
         [
@@ -35,7 +35,7 @@ class GameSeeder extends Seeder
             'category_id' => 1,
             'price' => 115599,
             'thumbnail' => 'raft.jpg',
-            // 'slides' => '1-image1.jpg,1-image2,1-image3',
+            'slides' => '2-image1.jpg,2-image2.jpg,2-image3.jpg',
             'description' => 'Raft throws you and your friends into an epic oceanic adventure! Alone or together, players battle to survive a perilous voyage across a vast sea!'
         ],
         [
@@ -43,7 +43,7 @@ class GameSeeder extends Seeder
             'category_id' => 2,
             'price' => 249999,
             'thumbnail' => 'age-of-empire.jpg',
-            // 'slides' => '1-image1.jpg,1-image2,1-image3',
+            'slides' => '2-image1.jpg,2-image2.jpg,2-image3.jpg',
             'description' => 'One of the most beloved real-time strategy games returns to glory with Age of Empires IV, putting you at the center of epic historical battles that shaped the world.'
         ],
         [
@@ -51,7 +51,7 @@ class GameSeeder extends Seeder
             'category_id' => 4,
             'price' => 999000,
             'thumbnail' => 'fifa22.jpg',
-            // 'slides' => '1-image1.jpg,1-image2,1-image3',
+            'slides' => '2-image1.jpg,2-image2.jpg,2-image3.jpg',
             'description' => 'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.'
         ]
     
