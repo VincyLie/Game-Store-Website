@@ -57,7 +57,6 @@ class ManageGameController extends Controller
                 ]);
             }
             if($success){
-                dd($success);
                 return redirect()->route('game.edit');
             }
             else{

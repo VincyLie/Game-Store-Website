@@ -10,36 +10,33 @@
                         <h5 class="card-title">{{ $game->title }}</h2>
                             <p class="card-text">{{ $game->description }}</p>
                             <h6 class="card-title">IDR {{ $game->price }}</h3>
-                                <a href="" class="btn btn-dark">Add to cart</a>
+                            <a href="" class="btn btn-dark">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-8 bg-white rounded border">
-                <div class="card">
-                    <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="/assets/{{ $slides[0] }}" class="d-block w-100 rounded" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="/assets/{{ $slides[1] }}" class="d-block w-100 rounded" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="/assets/{{ $slides[2] }}" class="d-block w-100 rounded" alt="...">
-                            </div>
+                <div class="card"> 
+                     <div class="carousel slide" id="carouselGame" data-bs-ride="carousel">
+                        <div class="carousel-inner"> 
+                            {{-- logic buat print semua slide --}}
+                            @foreach ($slides as $slide)
+                                <div class="carousel-item active">
+                                    <img src="/assets/{{ $slide->name }}" class="w-100" alt="..." style="height: 500px;width: 300px;">
+                                </div>
+                            @endforeach
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGame"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselGame"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
