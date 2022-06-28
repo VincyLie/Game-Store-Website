@@ -16,6 +16,7 @@ class GameDetailController extends Controller
         $slides = Slide::where('game_id',$id)->get();
         $reviews = Review::where('game_id',$id)->get();
         $user = Auth::check();
+        $user_id = $id;
         if ($user){
             $role_id = Auth::user()->role_id;
             $name = Auth::user()->name;
@@ -30,7 +31,8 @@ class GameDetailController extends Controller
             'game' => $game,
             'slides' => $slides,
             'relatedGames' => $relatedGames,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'user_id' => $id
         ]);
     }
 }

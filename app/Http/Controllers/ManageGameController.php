@@ -21,7 +21,8 @@ class ManageGameController extends Controller
             'category'=>'required',
             'price' => 'required|numeric',
             'thumbnail' => 'required||image|mimes:jpg,jpeg,svg,png',
-            'slides' => 'required',
+            'slides' => 'required|min:3',
+            'slides.*' => 'mimes:jpg,jpeg,svg,png',
             'description' => 'required|min:10'
         ]);
         //Upload Thumbnail

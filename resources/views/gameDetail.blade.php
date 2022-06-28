@@ -51,11 +51,21 @@
     <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post" enctype="multipart/form-data">   
         @csrf
             <h6>Leave a review!</h6>
+            @method('POST')
+                  @if ($errors->any())
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif
             <div class="d-flex gap-1">
-                <input type="checkbox" id="recommended" value="Recommended" name="recommended">
-                <label for="recommended">Recommended</label><br>
-                <input type="checkbox" id="recommended" value="Not Recommended" name="recommended">
-                <label for="not-recommended">Not Recommended</label><br>
+                <input type="radio" id="recommended" value="Recommended" name="recommended">
+                Recommended<br>
+                <input type="radio" id="recommended" value="Not Recommended" name="recommended">
+                Not Recommended<br>
             </div>
             <input type="text" name="description" id="description" class="w-100" style="height:10rem">
             <button type="submit" class="btn btn-dark w-25">Submit</button>
@@ -66,12 +76,7 @@
             @foreach ($reviews as $review)
                 <div class="col bg-white border p-2">
                         <h6>{{ $review->username }}</h6>
-                        {{ $review->recommended }}
-                        {{-- @if($review->recommended=='1')
-                            <p>recommended</p>
-                        @else
-                            <p>not recommended</p>
-                        @endif --}}
+                        <p>{{ $review->recommended }}</p>
                         <p>{{ $review->description }}</p>
                 </div>
             @endforeach       
