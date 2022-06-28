@@ -47,37 +47,34 @@
             <h6>IDR {{ $relatedGame->price }}</h6>
         </div>
     @endforeach
-    <div class="bg-white container-fluid d-flex flex-column gap-2 rounded" style="margin: 30px 0; padding: 10px">
-        <h6>Leave a review!</h6>
-        <div class="d-flex gap-1">
-            <input type="checkbox" id="recommended" name="recommended">
-            <label for="recommended">Recommended</label><br>
-            <input type="checkbox" id="not-recommended" name="not-recommended">
-            <label for="not-recommended">Not Recommended</label><br>
-        </div>
-        <input type="text" class="w-100" style="height:10rem">
-        <a href="" class="btn btn-dark w-25">Submit</a>
+    <div href="" class="bg-white container-fluid d-flex flex-column gap-2 rounded" style="margin: 30px 0; padding: 10px"> 
+    <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post" enctype="multipart/form-data">   
+        @csrf
+            <h6>Leave a review!</h6>
+            <div class="d-flex gap-1">
+                <input type="checkbox" id="recommended" value="Recommended" name="recommended">
+                <label for="recommended">Recommended</label><br>
+                <input type="checkbox" id="recommended" value="Not Recommended" name="recommended">
+                <label for="not-recommended">Not Recommended</label><br>
+            </div>
+            <input type="text" name="description" id="description" class="w-100" style="height:10rem">
+            <button type="submit" class="btn btn-dark w-25">Submit</button>
+    </form>
     </div>
-
     <div class="container-fluid" style="margin-bottom:30px">
         <div class="row">
-            <div class="col bg-white border p-2">
-                <h6>Abenbyy</h6>
-
-                <p>Recommended</p>
-                <p>Good game!</p>
-            </div>
-            <div class="col bg-white border p-2">
-                <h6>Abenbyy</h6>
-
-                <p>Recommended</p>
-                <p>Good game!</p>
-            </div>
-            <div class="col bg-white border p-2">
-                <h6>Abenbyy</h6>
-                <p>Recommended</p>
-                <p>Good game!</p>
-            </div>
+            @foreach ($reviews as $review)
+                <div class="col bg-white border p-2">
+                        <h6>{{ $review->username }}</h6>
+                        {{ $review->recommended }}
+                        {{-- @if($review->recommended=='1')
+                            <p>recommended</p>
+                        @else
+                            <p>not recommended</p>
+                        @endif --}}
+                        <p>{{ $review->description }}</p>
+                </div>
+            @endforeach       
         </div>
     </div>
 </div>

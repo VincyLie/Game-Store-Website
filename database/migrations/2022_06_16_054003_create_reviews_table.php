@@ -15,8 +15,9 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->boolean("recommended");
-            $table->foreignId('user_id');
+            $table->string("recommended");
+            $table->string('username');
+            $table->string('description');
             $table->foreignId('game_id');
             $table->timestamps();
         });

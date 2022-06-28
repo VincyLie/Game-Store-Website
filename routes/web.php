@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GameDetailController;
 use App\Http\Controllers\ManageGameController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,6 @@ Route::get('/game/edit', [ManageGameController::class, 'edit'])->name('game.edit
 Route::get('/game/view-update-game/{id}', [ManageGameController::class, 'view_update_game'])->middleware('admin');
 Route::post('/game/update-game/{id}', [ManageGameController::class, 'update_game'])->middleware('admin');
 Route::get('/game/delete-game/{id}', [ManageGameController::class, 'delete_game'])->middleware('admin');
+
+//Add Review 
+Route::post('/add/review/{id}/{name}',[ReviewController::class,'add']);
