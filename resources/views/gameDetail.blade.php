@@ -46,12 +46,14 @@
         </div>
     </div>
     <h6>More Like This</h6>
-    @foreach ($relatedGames as $relatedGame)
-        <div class="d-flex flex-column align-items-center w-100" style="height: 10rem">
-            <img src="/assets/{{ $relatedGame->thumbnail }}" alt="" class="h-100">
-            <h6>IDR {{ $relatedGame->price }}</h6>
-        </div>
-    @endforeach
+    <div class="d-flex flex-row">
+        @foreach ($relatedGames as $relatedGame)
+            <div class="d-flex flex-column align-items-center w-100 m-3" style="height: 10rem">
+                <img src="/assets/{{ $relatedGame->thumbnail }}" alt="" style="width:200px; height:150px;">
+                <h6>IDR {{ $relatedGame->price }}</h6>
+            </div>
+        @endforeach
+    </div>
     <div href="" class="bg-white container-fluid d-flex flex-column gap-2 rounded"
         style="margin: 30px 0; padding: 10px">
         <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post" enctype="multipart/form-data">
