@@ -10,20 +10,25 @@
                         <h5 class="card-title">{{ $game->title }}</h2>
                             <p class="card-text">{{ $game->description }}</p>
                             <h6 class="card-title">IDR {{ $game->price }}</h3>
-                            <a href="" class="btn btn-dark">Add to cart</a>
+                                <a href="" class="btn btn-dark">Add to cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-8 bg-white rounded border">
-                <div class="card"> 
-                     <div class="carousel slide" id="carouselGame" data-bs-ride="carousel">
-                        <div class="carousel-inner"> 
+                <div class="card">
+                    <div class="carousel slide" id="carouselGame" data-bs-ride="carousel">
+                        <div class="carousel-inner">
                             {{-- logic buat print semua slide --}}
-                            @foreach ($slides as $slide)
-                                <div class="carousel-item active">
-                                    <img src="/assets/{{ $slide->name }}" class="w-100" alt="..." style="height: 500px;width: 300px;">
+                            <div class="carousel-item active">
+                                <img src="/assets/{{ $slides[0]->name }}" class="w-100" alt="..."
+                                    style="height: 500px;width: 300px;">
+                            </div>
+                            @for ($i = 1; $i < count($slides); $i++)
+                                <div class="carousel-item">
+                                    <img src="/assets/{{ $slides[$i]->name }}" class="w-100" alt="..."
+                                        style="height: 500px;width: 300px;">
                                 </div>
-                            @endforeach
+                            @endfor
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselGame"
                             data-bs-slide="prev">
@@ -36,7 +41,7 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -47,20 +52,21 @@
             <h6>IDR {{ $relatedGame->price }}</h6>
         </div>
     @endforeach
-    <div href="" class="bg-white container-fluid d-flex flex-column gap-2 rounded" style="margin: 30px 0; padding: 10px"> 
-    <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post" enctype="multipart/form-data">   
-        @csrf
+    <div href="" class="bg-white container-fluid d-flex flex-column gap-2 rounded"
+        style="margin: 30px 0; padding: 10px">
+        <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post" enctype="multipart/form-data">
+            @csrf
             <h6>Leave a review!</h6>
             @method('POST')
-                  @if ($errors->any())
-                      <div class="alert alert-danger">
-                          <ul>
-                              @foreach ($errors->all() as $error)
-                                  <li>{{ $error }}</li>
-                              @endforeach
-                          </ul>
-                      </div>
-                  @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="d-flex gap-1">
                 <input type="radio" id="recommended" value="Recommended" name="recommended">
                 Recommended<br>
@@ -69,17 +75,17 @@
             </div>
             <input type="text" name="description" id="description" class="w-100" style="height:10rem">
             <button type="submit" class="btn btn-dark w-25">Submit</button>
-    </form>
+        </form>
     </div>
     <div class="container-fluid" style="margin-bottom:30px">
         <div class="row">
             @foreach ($reviews as $review)
                 <div class="col bg-white border p-2">
-                        <h6>{{ $review->username }}</h6>
-                        <p>{{ $review->recommended }}</p>
-                        <p>{{ $review->description }}</p>
+                    <h6>{{ $review->username }}</h6>
+                    <p>{{ $review->recommended }}</p>
+                    <p>{{ $review->description }}</p>
                 </div>
-            @endforeach       
+            @endforeach
         </div>
     </div>
 </div>
