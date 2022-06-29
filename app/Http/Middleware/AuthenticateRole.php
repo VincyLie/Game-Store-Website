@@ -16,10 +16,11 @@ class AuthenticateRole
      */
     public function handle(Request $request, Closure $next,$role)
     {
-        if (Auth::user() &&  Auth::user()->role == $role) {
+        $user = Auth::user();
+        if ($user && $user->hasRole($role)) {
             return $next($request);
-       }
-       else{
+        }
+        else{
             return redirect('/dashboard')->with('error','You are not allowed to access the route!');
        }
     }
