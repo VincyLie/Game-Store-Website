@@ -45,13 +45,34 @@
             </div>
         </div>
     </div>
+    <div class="d-flex flex-row justify-content-lg-start" style="">
+        <div class="d-flex flex-column mx-5 my-3" style="width:300px;">
+            <p>Genre</p>
+            <h6>{{ $category->name }}</h6>
+        </div>
+        <div class="d-flex flex-column mx-5 my-3" style="width:300px;">
+            <p>Release Date</p>
+            <h6>{{ $release_date }}</h6>
+        </div>
+        <div class="d-flex flex-column mx-5 my-3" style="width:300px;">
+            <p>All Reviews</p>
+            @if ($recommended!=0)
+                <h6>{{ $recommended }} Recommended</h6>
+            @endif
+            @if ($not_recommended!=0)
+                <h6>{{ $not_recommended }} Not Recommended</h6>
+            @endif
+        </div>
+    </div>
     <h6>More Like This</h6>
     <div class="d-flex flex-row">
         @foreach ($relatedGames as $relatedGame)
+            @if($relatedGame->id!=$game->id)
             <div class="d-flex flex-column align-items-center w-100 m-3" style="height: 10rem">
                 <img src="/assets/{{ $relatedGame->thumbnail }}" alt="" style="width:200px; height:150px;">
                 <h6>IDR {{ $relatedGame->price }}</h6>
             </div>
+            @endif
         @endforeach
     </div>
     <div href="" class="bg-white container-fluid d-flex flex-column gap-2 rounded"
