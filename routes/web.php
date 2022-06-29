@@ -19,10 +19,10 @@ use App\Http\Controllers\ReviewController;
 |
 */
 //Register and Login 
-Route::get('/register', [LoginController::class,'tampilanRegister']);
+Route::get('/register', [LoginController::class,'tampilanRegister'])->middleware('guest');
 Route::post('/register', [LoginController::class,'Register']);
 Route::get('/', [LoginController::class,'tampilanLogin']);
-Route::get('/login', [LoginController::class,'tampilanLogin']);
+Route::get('/login', [LoginController::class,'tampilanLogin'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'Login']);
 Route::get('/logout', [LoginController::class,'Logout'])->middleware('auth');
 
@@ -35,23 +35,23 @@ Route::get('gamedetail/{id}', [GameDetailController::class, 'index']);
 
 //Manage Category
 //Form Create Category
-Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create')->middleware('admin');
-Route::post('/category', [CategoryController::class, 'store'])->name('category.store')->middleware('admin');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create')->middleware('auth','admin');
+Route::post('/category', [CategoryController::class, 'store'])->name('category.store')->middleware('auth','admin');
 // Form Update Category 
-Route::get('/category/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('admin');//view
-Route::get('/category/view-update/{id}', [CategoryController::class, 'viewupdate'])->middleware('admin');
-Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update')->middleware('admin');
-Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy')->middleware('admin');
+Route::get('/category/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth','admin');//view
+Route::get('/category/view-update/{id}', [CategoryController::class, 'viewupdate'])->middleware('auth','admin');
+Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update')->middleware('auth','admin');
+Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy')->middleware('auth','admin');
 
 //Manage Game
 //Form Add Game 
-Route::get('/game/view-add-game', [ManageGameController::class, 'view_add_game'])->middleware('admin');
-Route::post('/game/add-game', [ManageGameController::class, 'add_game'])->middleware('admin');
+Route::get('/game/view-add-game', [ManageGameController::class, 'view_add_game'])->middleware('auth','admin');
+Route::post('/game/add-game', [ManageGameController::class, 'add_game'])->middleware('auth','admin');
 // Form Update Game
-Route::get('/game/edit', [ManageGameController::class, 'edit'])->name('game.edit')->middleware('admin');//view
-Route::get('/game/view-update-game/{id}', [ManageGameController::class, 'view_update_game'])->middleware('admin');
-Route::post('/game/update-game/{id}', [ManageGameController::class, 'update_game'])->middleware('admin');
-Route::get('/game/delete-game/{id}', [ManageGameController::class, 'delete_game'])->middleware('admin');
+Route::get('/game/edit', [ManageGameController::class, 'edit'])->name('game.edit')->middleware('auth','admin');//view
+Route::get('/game/view-update-game/{id}', [ManageGameController::class, 'view_update_game'])->middleware('auth','admin');
+Route::post('/game/update-game/{id}', [ManageGameController::class, 'update_game'])->middleware('auth','admin');
+Route::get('/game/delete-game/{id}', [ManageGameController::class, 'delete_game'])->middleware('auth','admin');
 
 //Add Review 
-Route::post('/add/review/{id}/{name}',[ReviewController::class,'add']);
+Route::post('/add/review/{id}/{name}',[ReviewController::class,'add'])->middleware('auth');
