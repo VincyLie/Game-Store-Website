@@ -19,6 +19,7 @@ class CreateReviewsTable extends Migration
             $table->string('username');
             $table->string('description');
             $table->foreignId('game_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
