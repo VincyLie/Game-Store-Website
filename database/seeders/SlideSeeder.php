@@ -74,7 +74,102 @@ class SlideSeeder extends Seeder
                 'game_id' => '5',
                 'name' => '5-image3.jpg',
             ],
-           
+            [
+                'game_id' => '6',
+                'name' => '6-image1.jpg',
+            ],
+            [
+                'game_id' => '6',
+                'name' => '6-image2.jpg',
+            ],
+            [
+                'game_id' => '6',
+                'name' => '6-image3.jpg',
+            ],
+            [
+                'game_id' => '7',
+                'name' => '7-image1.jpg',
+            ],
+            [
+                'game_id' => '7',
+                'name' => '7-image2.jpg',
+            ],
+            [
+                'game_id' => '7',
+                'name' => '7-image3.jpg',
+            ],
+            [
+                'game_id' => '8',
+                'name' => '8-image1.jpg',
+            ],
+            [
+                'game_id' => '8',
+                'name' => '8-image2.jpg',
+            ],
+            [
+                'game_id' => '8',
+                'name' => '8-image3.jpg',
+            ],
+            [
+                'game_id' => '9',
+                'name' => '9-image1.jpg',
+            ],
+            [
+                'game_id' => '9',
+                'name' => '9-image2.jpg',
+            ],
+            [
+                'game_id' => '9',
+                'name' => '9-image3.jpg',
+            ],
+            [
+                'game_id' => '10',
+                'name' => '10-image1.jpg',
+            ],
+            [
+                'game_id' => '10',
+                'name' => '10-image2.jpg',
+            ],
+            [
+                'game_id' => '10',
+                'name' => '10-image3.jpg',
+            ],
+            [
+                'game_id' => '11',
+                'name' => '11-image1.jpg',
+            ],
+            [
+                'game_id' => '11',
+                'name' => '11-image2.jpg',
+            ],
+            [
+                'game_id' => '11',
+                'name' => '11-image3.jpg',
+            ],
+            [
+                'game_id' => '12',
+                'name' => '12-image1.jpg',
+            ],
+            [
+                'game_id' => '12',
+                'name' => '12-image2.jpg',
+            ],
+            [
+                'game_id' => '12',
+                'name' => '12-image3.jpg',
+            ],
+            [
+                'game_id' => '13',
+                'name' => '13-image1.jpg',
+            ],
+            [
+                'game_id' => '13',
+                'name' => '13-image2.jpg',
+            ],
+            [
+                'game_id' => '13',
+                'name' => '13-image3.jpg',
+            ],
         ]);
     }
 }

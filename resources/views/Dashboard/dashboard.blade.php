@@ -28,7 +28,8 @@
                         <div class="card-body">
                             <h5 class="card-title"> <a href="gamedetail/{{ $game->id }}"
                                     class="text-decoration-none text-black">{{ $game->title }}</a></h5>
-                            <p class="card-text" style="min-height: 11rem; max-height: 14rem">{{ $game->description }}
+                            <p class="card-text" style="min-height: 11rem; max-height: 14rem">
+                                {{\Illuminate\Support\Str::limit($game->description, 136)}}
                             </p>
                             <h6 class="text-end">{{ $game->price }}</h6>
                         </div>

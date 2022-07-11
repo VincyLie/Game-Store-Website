@@ -50,6 +50,62 @@ class GameSeeder extends Seeder
             'thumbnail' => 'fifa22.jpg',
             'description' => 'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.'
         ]);
-            
+        Game::create([
+            'title' => 'NBA 2K22',
+            'category_id' => 4,
+            'price' => 100000,
+            'thumbnail' => 'NBA-2k22.jpg',
+            'description' => 'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.'
+        ]);
+        Game::create([
+            'title' => 'WWE 2K22',
+            'category_id' => 4,
+            'price' => 72000,
+            'thumbnail' => 'WWE-2k22.jpg',
+            'description' => 'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.'
+        ]);
+        Game::create([
+            'title' => 'Football Manager 2022',
+            'category_id' => 4,
+            'price' => 189000,
+            'thumbnail' => 'Football-Manager-2022.jpg',
+            'description' => 'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.'
+        ]);
+        Game::create([
+            'title' => 'Pro Soccer Online',
+            'category_id' => 4,
+            'price' => 340000,
+            'thumbnail' => 'Pro-Soccer-Online.jpg',
+            'description' => 'Powered by Football™, EA SPORTS™ FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.'
+        ]);
+        //Sandbox
+        Game::create([
+            'title' => 'Arma 3',
+            'category_id' => 1,
+            'price' => 68000,
+            'thumbnail' => 'Arma3.jpg',
+            'description' => 'Experience true combat gameplay in a massive military sandbox. Deploying a wide variety of single- and multiplayer content, over 20 vehicles and 40 weapons, and limitless opportunities for content creation, this is the PC’s premier military game. Authentic, diverse, open - Arma 3 sends you to war.'
+        ]);
+        Game::create([
+            'title' => 'Planet Zoo',
+            'category_id' => 1,
+            'price' => 108900,
+            'thumbnail' => 'Planet-Zoo.jpg',
+            'description' => 'Build a world for wildlife in Planet Zoo. From the developers of Planet Coaster and Zoo Tycoon comes the ultimate zoo sim. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.'
+        ]);
+        Game::create([
+            'title' => 'Terraria',
+            'category_id' => 1,
+            'price' => 173090,
+            'thumbnail' => 'Terraria.jpg',
+            'description' => 'Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!'
+        ]);
+        Game::create([
+            'title' => 'Stardew',
+            'category_id' => 1,
+            'price' => 427000,
+            'thumbnail' => 'Stardew-Valley.jpg',
+            'description' => 'Stardew Valley is a simulation role-playing video game developed by Eric "ConcernedApe" Barone. Players take the role of a character who takes over their deceased grandfather.'
+        ]);
     }
 }
