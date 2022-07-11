@@ -10,6 +10,7 @@ class DashboardController extends Controller
     public function index(){
         $games = Game::all();
         $user = Auth::check();
+        $featured;
         if ($user){
             $role_id = Auth::user()->role_id;
             $name = Auth::user()->name;

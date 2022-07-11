@@ -18,7 +18,7 @@ class ReviewController extends Controller
         $available = true;
         foreach($old_reviews as $old_review){
             //udah pernah jd tinggal update
-            if($old_review->user_id==$userId){
+            if($old_review->user_id==$userId&&$old_review->game_id==$gameId){
                 $available= false;
                 $old_review->recommended = $review->recommended;
                 $old_review->description = $review->description;
