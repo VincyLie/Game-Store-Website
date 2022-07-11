@@ -36,29 +36,30 @@ class LoginController extends Controller
     }
     public function Login(Request $request){
         //validasi 
+        $remember=false;
         $validator = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required:min:8'
         ]);
+        if($request->has('remember')){
+            $remember = true;
+        }
+        //Remember untuk 2 hari 
+        Auth::setRememberDuration(2880);
         //autentikasi user 
-        if(Auth::attempt($validator)){
-            $email = $request->email;
-            $password = $request->password;
-            //mau remember me (simpan cookie 2 hari)
-            if($request->has('remember')){
-                $cookie = cookie(['email', $email, 2880],
-                                ['password',$password,2880]);
-                return redirect('/dashboard')->cookie($cookie);
-            }else{
-                return redirect('/dashboard');
-            }
-        }else{
+        if(Auth::attempt($validator,$remember)){
+            $request->session()->regenerate();
+            return redirect('/dashboard');
+        }
+        else{
             return redirect('login')->withErrors('Login Failed! Please try again!');
         }
     }
-    public function Logout(){
+    public function Logout(Request $request){
         if(Auth::check()){
             Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
             return redirect('/dashboard');
         }
     }
