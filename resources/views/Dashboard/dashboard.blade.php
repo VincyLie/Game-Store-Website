@@ -21,17 +21,17 @@
         <h5 class="text-center">Featured Games</h5>
         <div class="container">
             <div class="row">
-                @foreach ($games as $game)
+                @foreach ($featuredGames as $featuredGame)
                     <div class="card m-1 mx-auto" style="width: 14rem; min-height: 26rem; max-height: 30rem;">
-                        <a href="/gamedetail/{{ $game->id }}"><img src="/assets/{{ $game->thumbnail }}"
+                        <a href="/gamedetail/{{ $featuredGame->id }}"><img src="/assets/{{ $featuredGame->thumbnail }}"
                                 class="card-img-top" alt="..."></a>
                         <div class="card-body">
-                            <h5 class="card-title"> <a href="gamedetail/{{ $game->id }}"
-                                    class="text-decoration-none text-black">{{ $game->title }}</a></h5>
+                            <h5 class="card-title"> <a href="gamedetail/{{ $featuredGame->id }}"
+                                    class="text-decoration-none text-black">{{ $featuredGame->title }}</a></h5>
                             <p class="card-text" style="min-height: 11rem; max-height: 14rem">
-                                {{\Illuminate\Support\Str::limit($game->description, 136)}}
+                                {{\Illuminate\Support\Str::limit($featuredGame->description, 136)}}
                             </p>
-                            <h6 class="text-end">{{ $game->price }}</h6>
+                            <h6 class="text-end">{{ $featuredGame->price }}</h6>
                         </div>
                     </div>
                 @endforeach
