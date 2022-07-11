@@ -46,7 +46,7 @@
                             
                             <div>
                                 <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
+                                    <input type="checkbox" id="remember-me" name="remember-me" value="remember-me" @if(old('remember-me')) checked @endif> Remember me
                                 </label>
                             </div>
                             <small class="d-block text-center mt-3">

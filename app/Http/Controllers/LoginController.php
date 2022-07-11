@@ -41,7 +41,7 @@ class LoginController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required:min:8'
         ]);
-        if($request->has('remember')){
+        if($request->has('remember-me')){
             $remember = true;
         }
         //Remember untuk 2 hari 
