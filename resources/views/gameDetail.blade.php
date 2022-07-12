@@ -68,10 +68,12 @@
     <div class="d-flex flex-row">
         @foreach ($relatedGames as $relatedGame)
             @if($relatedGame->id!=$game->id)
-            <div class="d-flex flex-column align-items-center w-100 m-3" style="height: 10rem">
-                <img src="/assets/{{ $relatedGame->thumbnail }}" alt="" style="width:200px; height:150px;">
-                <h6>IDR {{ $relatedGame->price }}</h6>
-            </div>
+            <a href="/gamedetail/{{ $relatedGame->id }}" class="text-decoration-none text-black">
+                <div class="d-flex flex-column align-items-center w-100 m-3" style="height: 10rem">
+                    <img src="/assets/{{ $relatedGame->thumbnail }}" alt="" style="width:200px; height:150px;">
+                    <h6>IDR {{ $relatedGame->price }}</h6>
+                </div>
+            </a>
             @endif
         @endforeach
     </div>
@@ -97,7 +99,7 @@
                 Not Recommended<br>
             </div>
             <input type="text" name="description" id="description" class="w-100" style="height:10rem">
-            <button type="submit" class="btn btn-dark w-25">Submit</button>
+            <button type="submit" class="btn btn-dark w-15 mt-3">Submit</button>
         </form>
     </div>
     <div class="container-fluid" style="margin-bottom:30px">

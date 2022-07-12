@@ -30,7 +30,7 @@
                                 <h5 class="card-title"> 
                                     {{ $featuredGame->title }}
                                 </h5>
-                                <p class="card-text" style="min-height: 11rem; max-height: 14rem">
+                                <p class="card-text" style="max-height: 11rem">
                                     {{\Illuminate\Support\Str::limit($featuredGame->description, 136)}}
                                 </p>
                                 <h6 class="text-end">{{ $featuredGame->price }}</h6>
