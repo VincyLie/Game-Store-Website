@@ -24,7 +24,14 @@
                   </div>
                   <div class="row">
                       <div class="col mx-0 mt-1 mb-2">
-                          <input type="text" name="category" class="form-control @error('category') is-invalid @enderror" id="category" placeholder="Category" autofocus required value="{{ old('category') }}">
+                            <select class="form-control" id="category"name="category">
+                                <option hidden>Select Category...</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                       </div>
                   </div>
                   <div class="row">

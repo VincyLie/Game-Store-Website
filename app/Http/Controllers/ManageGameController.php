@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class ManageGameController extends Controller
 {
     public function view_add_game(){
-        return view('addGame');
+        $categories = Category::all();
+        return view('addGame',['categories'=>$categories]);
     }
     public function add_game(Request $game){
         //Validasi 
@@ -29,24 +30,25 @@ class ManageGameController extends Controller
         $thumbnail_file = $game->thumbnail->getClientOriginalName();
         $game->thumbnail->move(public_path('assets'), $thumbnail_file);
         //Check Category 
-        $category_id=0;
-        $categories = Category::all();
-        foreach($categories as $category){
-            if($category->name == $validation['category']){
-                $category_id = $category->id;
-            }
-        }
-        if($category_id==0){
-            return redirect()->back()->with('error','Category does not exist!');
-        }
-        else{
+        // $category_id=0;
+        // $categories = Category::all();
+        // foreach($categories as $category){
+        //     if($category->name == $validation['category']){
+        //         $category_id = $category->id;
+        //     }
+        // }
+        // if($category_id==0){
+        //     return redirect()->back()->with('error','Category does not exist!');
+        // }
+        // else{
             //Create Game
             $success = Game::create([
                 'title' => $game->title,
-                'category_id' => $category_id,
+                'category_id' => $game->category,
                 'price' => $game->price,
                 'thumbnail' => $thumbnail_file,
-                'description' => $game->description
+                'description' => $game->description,
+                'positive' => 0
             ]);
             //Upload Slides
             foreach($game->file('slides') as $slide){
@@ -63,7 +65,7 @@ class ManageGameController extends Controller
             else{
                 return redirect()->back()->with('error','Game failed created!');
             }
-        }
+        // }
     }
     public function edit(Game $game){
         $games = Game::all();
@@ -95,7 +97,7 @@ class ManageGameController extends Controller
         ]);
     }
     public function update_game(Request $game, $id){
-        $validation = $game->validate([
+        $game->validate([
             'title'=>'required',
             'category'=>'required',
             'price' => 'required|numeric',
@@ -106,24 +108,24 @@ class ManageGameController extends Controller
         $thumbnail_file = $game->thumbnail->getClientOriginalName();
         $game->thumbnail->move(public_path('assets'), $thumbnail_file);
         //Check Category 
-        $category_id=0;
-        $categories = Category::all();
-        foreach($categories as $category){
-            if($category->name == $validation['category']){
-                $category_id = $category->id;
-            }
-        }
-        if($category_id=0){
-            return redirect()->back()->with('error','Category does not exist!');
-        }
-        else{
+        // $category_id=0;
+        // $categories = Category::all();
+        // foreach($categories as $category){
+        //     if($category->name == $game->category){
+        //         $category_id = $category->id;
+        //     }
+        // }
+        // if($category_id=0){
+        //     return redirect()->back()->with('error','Category does not exist!');
+        // }
+        // else{
             $NewGame = Game::find($id);
-            $NewGame->title = $game->name;
-            $NewGame->category_id = $category_id;
+            $NewGame->title = $game->title;
+            $NewGame->category_id = $game->category;
             $NewGame->price = $game->price;
             $NewGame->thumbnail = $thumbnail_file;
             $NewGame->description = $game->description;
-            //Upload Slides
+             //Upload Slides
             foreach($game->file('slides') as $slide){
                 $slide_file = $slide->getClientOriginalName();
                 $slide->move(public_path('assets'),$slide_file);
@@ -138,7 +140,7 @@ class ManageGameController extends Controller
             else{
                 return redirect()->back()->with('error','Game failed updated!');
             }
-        }
+        // }
     }
     public function delete_game($id){
         $game = Game::find($id);

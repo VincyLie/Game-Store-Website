@@ -14,11 +14,20 @@
                   </div>
                   <div class="row">
                       <div class="col mx-0 mt-1 mb-2">
-                            @foreach ($categories as $category)
-                                @if ($category->id == $game->category_id)
-                                <input type="text" name="category" class="form-control @error('category') is-invalid @enderror" id="category" placeholder="Category" autofocus required value="{{ $category->name }}">            
-                               @endif
-                            @endforeach
+                            <select class="form-control" id="category" name="category">
+                                <option hidden>Select Category...</option>
+                                @foreach ($categories as $category)
+                                    @if ($category->id == $game->category_id)
+                                        <option value="{{ $category->id }}" selected>
+                                            {{ $category->name }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
                       </div>
                   </div>
                   <div class="row">
