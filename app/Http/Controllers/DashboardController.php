@@ -10,6 +10,7 @@ class DashboardController extends Controller
     public function index(){
         $games = Game::all();
         $featuredGames = Game::orderBy('positive','desc')->limit(5)->get();
+        $hotGames = Game::orderBy('amount_sold','desc')->limit(5)->get();
         $user = Auth::check();
         if ($user){
             $role_id = Auth::user()->role_id;
@@ -23,7 +24,8 @@ class DashboardController extends Controller
             'name' => $name,
             'user' => $user,
             'games' => $games,
-            'featuredGames' => $featuredGames 
+            'featuredGames' => $featuredGames,
+            'hotGames' => $hotGames 
         ]);
     }
     public function search(Request $request){

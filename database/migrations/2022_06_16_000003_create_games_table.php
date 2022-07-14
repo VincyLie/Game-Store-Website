@@ -22,6 +22,7 @@ class CreateGamesTable extends Migration
             $table->string("thumbnail");
             $table->text("description");
             $table->integer("positive");
+            $table->integer("amount_sold");
             $table->timestamps();
         });
     }
