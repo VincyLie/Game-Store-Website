@@ -58,7 +58,7 @@ Route::get('/game/delete-game/{id}', [ManageGameController::class, 'delete_game'
 Route::post('/add/review/{id}/{name}',[ReviewController::class,'add'])->middleware('auth');
 
 //Cart
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::get('/cart/add/{id}', [CartController::class, 'store']); 
-Route::get('/cart/remove/{id}', [CartController::class, 'remove']);
-Route::get('/cart/checkout', [CartController::class, 'checkout']);
+Route::get('/cart', [CartController::class, 'index'])->name('cart')->middleware('auth');
+Route::get('/cart/add/{id}', [CartController::class, 'store'])->middleware('auth'); 
+Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->middleware('auth');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
