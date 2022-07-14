@@ -38,7 +38,7 @@ class ReviewController extends Controller
                     }
                 }
                 if($old_review->save()){
-                    return redirect('/dashboard');
+                    return back();
                 }
             }
         }
@@ -64,7 +64,7 @@ class ReviewController extends Controller
                 }
             }
             if($newReview){
-                return redirect('/dashboard');
+                return back();
             }
             else{
                 return redirect()->back()->with('error','Review failed added!');
