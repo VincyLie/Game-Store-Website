@@ -10,7 +10,10 @@
                         <h5 class="card-title">{{ $game->title }}</h2>
                             <p class="card-text">{{ $game->description }}</p>
                             <h6 class="card-title">IDR {{ $game->price }}</h3>
-                                <a href="" class="btn btn-dark">Add to cart</a>
+                                <a href="/cart/add/{{ $game->id }}" class="btn btn-dark">Add to cart</a>
+                                @if (session()->has('error'))
+                                    <p class="text-danger">{{ session('error') }}</p>
+                                @endif
                     </div>
                 </div>
             </div>
@@ -56,10 +59,10 @@
         </div>
         <div class="d-flex flex-column mx-5 my-3" style="width:300px;">
             <p>All Reviews</p>
-            @if ($recommended!=0)
+            @if ($recommended != 0)
                 <h6>{{ $recommended }} Recommended</h6>
             @endif
-            @if ($not_recommended!=0)
+            @if ($not_recommended != 0)
                 <h6>{{ $not_recommended }} Not Recommended</h6>
             @endif
         </div>
@@ -67,19 +70,21 @@
     <h6>More Like This</h6>
     <div class="d-flex flex-row">
         @foreach ($relatedGames as $relatedGame)
-            @if($relatedGame->id!=$game->id)
-            <a href="/gamedetail/{{ $relatedGame->id }}" class="text-decoration-none text-black">
-                <div class="d-flex flex-column align-items-center w-100 m-3" style="height: 10rem">
-                    <img src="/assets/{{ $relatedGame->thumbnail }}" alt="" style="width:200px; height:150px;">
-                    <h6>IDR {{ $relatedGame->price }}</h6>
-                </div>
-            </a>
+            @if ($relatedGame->id != $game->id)
+                <a href="/gamedetail/{{ $relatedGame->id }}" class="text-decoration-none text-black">
+                    <div class="d-flex flex-column align-items-center w-100 m-3" style="height: 10rem">
+                        <img src="/assets/{{ $relatedGame->thumbnail }}" alt=""
+                            style="width:200px; height:150px;">
+                        <h6>IDR {{ $relatedGame->price }}</h6>
+                    </div>
+                </a>
             @endif
         @endforeach
     </div>
     <div href="" class="bg-white container-fluid d-flex flex-column gap-2 rounded"
         style="margin: 30px 0; padding: 10px">
-        <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post" enctype="multipart/form-data">
+        <form action="/add/review/{{ $game->id }}/{{ $name }}" method="post"
+            enctype="multipart/form-data">
             @csrf
             <h6>Leave a review!</h6>
             @method('POST')

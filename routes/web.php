@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
@@ -31,7 +32,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 //Search
 Route::get('/dashboard/search', [DashboardController::class, 'search']);
 //GameDetail
-Route::get('gamedetail/{id}', [GameDetailController::class, 'index']);
+Route::get('gamedetail/{id}', [GameDetailController::class, 'index'])->name('gameDetail');
 
 //Manage Category
 //Form Create Category
@@ -55,3 +56,9 @@ Route::get('/game/delete-game/{id}', [ManageGameController::class, 'delete_game'
 
 //Add Review 
 Route::post('/add/review/{id}/{name}',[ReviewController::class,'add'])->middleware('auth');
+
+//Cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/cart/add/{id}', [CartController::class, 'store']); 
+Route::get('/cart/remove/{id}', [CartController::class, 'remove']);
+Route::get('/cart/checkout', [CartController::class, 'checkout']);
