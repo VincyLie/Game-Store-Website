@@ -11,16 +11,19 @@
     </div>
     <div class="row justify-content-center">
         @foreach ($games as $game)
-            <div class="col-md-2 m-1 mb-2">
-                <div class="card" style="width:12.5rem;">
-                    <a href="/gamedetail/{{ $game->id }}"><img src="/assets/{{ $game->thumbnail }}"
-                            class="card-img-top" alt="..."></a>
-                    <div class="card-body p-0">
-                        <h6 class="card-title m-0">{{ $game->title }}</h6>
-                        <div class="card-text text-small">{{ $game->description }}</div>
+            <div class="card m-1 mx-auto" style="width: 14rem; min-height: 26rem; max-height: 30rem;">
+                <a href="/gamedetail/{{ $game->id }}" class="text-decoration-none text-black">
+                    <img src="/assets/{{ $game->thumbnail }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ $game->title }}
+                        </h5>
+                        <p class="card-text" style="max-height: 11rem">
+                            {{ \Illuminate\Support\Str::limit($game->description, 136) }}
+                        </p>
                         <h6 class="text-end">{{ $game->price }}</h6>
                     </div>
-                </div>
+                </a>
             </div>
         @endforeach
         <div class="column d-flex justify-content-end">

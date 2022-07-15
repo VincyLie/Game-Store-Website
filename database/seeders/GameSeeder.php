@@ -136,5 +136,29 @@ class GameSeeder extends Seeder
             'description' => 'The nightmarish dinosaur-spider hybrids known as Spidersaurs have run amok! Armed with an arsenal of awesome weapons, it’s up to you (and a friend in co-op mode) to shoot your way through six levels of ferocious run-’n’-gun mayhem and send these mutant ',
             'positive' => 0
         ]);
+        Game::create([
+            'title' => 'Aliens Vs. Ghosts',
+            'category_id' => 3,
+            'price' => 56899,
+            'thumbnail' => 'AliensVsGhosts.jpg',
+            'description' => 'Use Nukes, Electricity, Freeze Rays, Heat Rays and powerful Minions to defeat all the Ghosts in this wave-based first person shooter! Only Ghosts stand in the way of your invasion of Earth.',
+            'positive' => 0
+        ]);
+        Game::create([
+            'title' => 'POSTAL: Brain Damaged',
+            'category_id' => 3,
+            'price' => 154999,
+            'thumbnail' => 'POSTAL.jpg',
+            'description' => 'POSTAL: Brain Damaged is a new, action-oriented take on the Running With Scissors’ cult game series with throwback graphics, and fast-paced, modern gameplay. Take a wild roller coaster ride through the twisted wonderland encased in the POSTAL DUDE’S messed-up mind.',
+            'positive' => 0
+        ]);
+        Game::create([
+            'title' => 'Ace Breakout',
+            'category_id' => 3,
+            'price' => 74300,
+            'thumbnail' => 'AceBreakout.jpg',
+            'description' => 'A top down shooter game fighting against large swarms of insects alone, or recruit friends to fight along side you! Buy and craft new equipment to help you rid the world of the swarm!',
+            'positive' => 0
+        ]);
     }
 }
