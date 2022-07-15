@@ -170,6 +170,30 @@ class SlideSeeder extends Seeder
                 'game_id' => '13',
                 'name' => '13-image3.jpg',
             ],
+            [
+                'game_id' => '14',
+                'name' => '14-image1.jpg',
+            ],
+            [
+                'game_id' => '14',
+                'name' => '14-image2.jpg',
+            ],
+            [
+                'game_id' => '14',
+                'name' => '14-image3.jpg',
+            ],
+            [
+                'game_id' => '15',
+                'name' => '15-image1.jpg',
+            ],
+            [
+                'game_id' => '15',
+                'name' => '15-image2.jpg',
+            ],
+            [
+                'game_id' => '15',
+                'name' => '15-image3.jpg',
+            ],
         ]);
     }
 }

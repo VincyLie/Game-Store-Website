@@ -120,5 +120,21 @@ class GameSeeder extends Seeder
             'description' => 'Stardew Valley is a simulation role-playing video game developed by Eric "ConcernedApe" Barone. Players take the role of a character who takes over their deceased grandfather.',
             'positive' => 0
         ]);
+        Game::create([
+            'title' => 'Warpips',
+            'category_id' => 1,
+            'price' => 112999,
+            'thumbnail' => 'Warpips.jpg',
+            'description' => 'Warpips is the ultimate quick to learn but amazingly deep tug-of-war strategy game. Deploy the right composition of soldiers, tanks, helicopters and planes in this tight, streamlined strategy-focused war game. Compose the best army, research the right tech; overwhelm your enemy!',
+            'positive' => 0
+        ]);
+        Game::create([
+            'title' => 'Spidersaurs',
+            'category_id' => 3,
+            'price' => 108999,
+            'thumbnail' => 'Spidersaurs.jpg',
+            'description' => 'The nightmarish dinosaur-spider hybrids known as Spidersaurs have run amok! Armed with an arsenal of awesome weapons, it’s up to you (and a friend in co-op mode) to shoot your way through six levels of ferocious run-’n’-gun mayhem and send these mutant ',
+            'positive' => 0
+        ]);
     }
 }
