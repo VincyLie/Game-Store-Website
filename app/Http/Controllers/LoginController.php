@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function Register(Request $request){
          $request->validate([
             'name' => 'required',
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required|email:rfc,dns|unique:users',
             'password' => 'required|min:8',
             'confirmpassword' => 'required|same:password'
         ]);

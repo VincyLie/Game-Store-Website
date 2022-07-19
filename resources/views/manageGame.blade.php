@@ -30,11 +30,11 @@
                 </div>
             @endforeach
             {{-- Untuk Pagination --}}
-            {{-- <div class="text-end">
-            <button type="button" class="btn btn-dark">
-              Checkout
-            </button>
-          </div> --}}
+            <div class="column d-flex justify-content-end">
+                <div class="mx-4">
+                    {{ $games->links() }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

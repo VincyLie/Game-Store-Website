@@ -71,7 +71,7 @@ class ManageGameController extends Controller
         // }
     }
     public function edit(Game $game){
-        $games = Game::all();
+        $games = Game::paginate(10);
         $user = Auth::check();
         $categories = Category::all();
         if ($user){
@@ -108,7 +108,7 @@ class ManageGameController extends Controller
             'slides' => 'required',
             'description' => 'required|min:10'
         ])){
-            return back()->withErrors();      
+            return back()->with('error','Game failed updated!');  
         }
         //Check Category 
         // $category_id=0;
