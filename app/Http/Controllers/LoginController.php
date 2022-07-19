@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function Register(Request $request){
          $request->validate([
             'name' => 'required',
-            'email' => 'required|email:dns',
+            'email' => 'required|email:rfc,dns',
             'password' => 'required|min:8',
             'confirmpassword' => 'required|same:password'
         ]);
@@ -38,7 +38,7 @@ class LoginController extends Controller
         //validasi 
         $remember=false;
         $validator = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required|email:rfc,dns',
             'password' => 'required:min:8'
         ]);
         if($request->has('remember-me')){

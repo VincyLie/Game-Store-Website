@@ -60,7 +60,7 @@ class CartController extends Controller
             }
         }
         if(!$inCart && !$bought){
-            $cart = Cart::insert([
+            $cart = Cart::create([
                 'user_id' => $userId,
                 'game_id' => $gameId,
             ]);
@@ -77,7 +77,7 @@ class CartController extends Controller
     public function checkout(){
         $carts = Cart::all();
         foreach($carts as $cart) {
-            Transaction::insert([
+            Transaction::create([
                 'game_id' => $cart->game_id,
                 'user_id' => $cart->user_id
             ]);
