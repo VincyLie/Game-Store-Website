@@ -100,16 +100,14 @@ class ManageGameController extends Controller
         ]);
     }
     public function update_game(Request $game, $id){
-        if(!$game->validate([
+        $game->validate([
             'title'=>'required',
             'category'=>'required',
             'price' => 'required|numeric',
             'thumbnail' => 'required||image|mimes:jpg,jpeg,svg,png',
             'slides' => 'required',
             'description' => 'required|min:10'
-        ])){
-            return back()->withErrors();      
-        }
+        ]);
         //Check Category 
         // $category_id=0;
         // $categories = Category::all();
