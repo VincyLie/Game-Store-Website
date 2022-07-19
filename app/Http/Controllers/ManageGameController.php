@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ManageGameController extends Controller
 {
@@ -28,7 +29,8 @@ class ManageGameController extends Controller
         ]);
         //Upload Thumbnail
         $thumbnail_file = $game->thumbnail->getClientOriginalName();
-        $game->thumbnail->move(public_path('assets'), $thumbnail_file);
+        // $game->thumbnail->move(public_path('assets'), $thumbnail_file);
+        $game->thumbnail->storeAs('/public/assets', $thumbnail_file);
         //Check Category 
         // $category_id=0;
         // $categories = Category::all();
@@ -53,7 +55,8 @@ class ManageGameController extends Controller
             //Upload Slides
             foreach($game->file('slides') as $slide){
                 $slide_file = $slide->getClientOriginalName();
-                $slide->move(public_path('assets'),$slide_file);
+                // $slide->move(public_path('assets'),$slide_file);
+                $slide->storeAs('/public/assets', $slide_file);
                 Slide::insert([
                     'game_id' => $success->id,
                     'name' => $slide_file
@@ -97,16 +100,16 @@ class ManageGameController extends Controller
         ]);
     }
     public function update_game(Request $game, $id){
-        $game->validate([
+        if(!$game->validate([
             'title'=>'required',
             'category'=>'required',
             'price' => 'required|numeric',
             'thumbnail' => 'required||image|mimes:jpg,jpeg,svg,png',
             'slides' => 'required',
             'description' => 'required|min:10'
-        ]);
-        $thumbnail_file = $game->thumbnail->getClientOriginalName();
-        $game->thumbnail->move(public_path('assets'), $thumbnail_file);
+        ])){
+            return back()->withErrors();      
+        }
         //Check Category 
         // $category_id=0;
         // $categories = Category::all();
@@ -120,6 +123,16 @@ class ManageGameController extends Controller
         // }
         // else{
             $NewGame = Game::find($id);
+            Storage::delete('/public/assets/'.$NewGame->thumbnail);
+            foreach ($NewGame->slides as $slide) {
+                Storage::delete('/public/assets/'.$slide->name);
+            }
+            foreach ($NewGame->slides as $slide) {
+                $slide->delete();
+            }
+            $thumbnail_file = $game->thumbnail->getClientOriginalName();
+            // $game->thumbnail->move(public_path('assets'), $thumbnail_file);
+            $game->thumbnail->storeAs('/public/assets', $thumbnail_file);          
             $NewGame->title = $game->title;
             $NewGame->category_id = $game->category;
             $NewGame->price = $game->price;
@@ -128,7 +141,8 @@ class ManageGameController extends Controller
              //Upload Slides
             foreach($game->file('slides') as $slide){
                 $slide_file = $slide->getClientOriginalName();
-                $slide->move(public_path('assets'),$slide_file);
+                // $slide->move(public_path('assets'),$slide_file);
+                $slide->storeAs('/public/assets', $slide_file);
                 Slide::insert([
                     'game_id' => $id,
                     'name' => $slide_file
@@ -145,6 +159,10 @@ class ManageGameController extends Controller
     public function delete_game($id){
         $game = Game::find($id);
         if($game->delete()){
+            Storage::delete('/public/assets/'.$game->thumbnail);
+            foreach ($game->slides as $slide) {
+                Storage::delete('/public/assets/'.$slide->name);
+            }
             return redirect()->route('game.edit');
         }
         else{

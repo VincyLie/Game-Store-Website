@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -118,10 +119,19 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $Category = Category::find($id);
-        if ($Category->delete()) {
+        $games = $Category->game;
+        foreach ($games as $game) {
+            Storage::delete('/public/assets/'.$game->thumbnail);
+            foreach ($game->slides as $slide) {
+            Storage::delete('/public/assets/'.$slide->name);
+            }
+        }
+        $deleted = $Category->delete();
+        if($deleted)
+        {
             return redirect()->route('category.edit');
-        } 
-        else {
+        }
+        else{
             return redirect()->back()->with('error', 'Category deleted failed!');
         }
     }

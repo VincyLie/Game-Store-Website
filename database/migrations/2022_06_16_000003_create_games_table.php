@@ -17,7 +17,7 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer("price");
             $table->string("thumbnail");
             $table->text("description");
