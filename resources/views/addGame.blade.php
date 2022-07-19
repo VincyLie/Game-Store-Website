@@ -57,7 +57,7 @@
                   </div>
                   <div class="row">
                       <div class="col mx-0 mt-0 mb-2">
-                          <textarea required="required" id="description" name="description" rows="3" cols="58" style="text-transform: uppercase"></textarea>
+                          <textarea required="required" id="description" name="description" rows="3" cols="45"></textarea>
                       </div>
                   </div>
                   <div class=" d-flex justify-content-lg-start">

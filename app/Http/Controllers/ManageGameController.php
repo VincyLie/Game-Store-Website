@@ -71,7 +71,7 @@ class ManageGameController extends Controller
         // }
     }
     public function edit(Game $game){
-        $games = Game::all();
+        $games = Game::paginate(10);
         $user = Auth::check();
         $categories = Category::all();
         if ($user){
@@ -107,7 +107,13 @@ class ManageGameController extends Controller
             'thumbnail' => 'required||image|mimes:jpg,jpeg,svg,png',
             'slides' => 'required',
             'description' => 'required|min:10'
+<<<<<<< HEAD
+        ])){
+            return back()->with('error','Game failed updated!');  
+        }
+=======
         ]);
+>>>>>>> 223cecbec45712585ceae504810c13c2d7eae55e
         //Check Category 
         // $category_id=0;
         // $categories = Category::all();
