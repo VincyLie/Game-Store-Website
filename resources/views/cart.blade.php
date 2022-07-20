@@ -5,7 +5,6 @@
         <div class="col col-md-11">
             <h6 class="">Your Cart</h6>
             {{-- Card Cart --}}
-
             {{-- {{ dd($carts) }} --}}
             @foreach ($carts as $cart)
                 <div class="d-flex border rounded mb-1" style="height: 5rem">
@@ -33,7 +32,6 @@
                     <h6 class="">IDR {{ $total }}</h6>
                 </div>
             </div>
-
             {{-- Button Checkout --}}
             <div class="text-end">
                 <a href="/cart/checkout" class="btn btn-dark">Checkout</a>

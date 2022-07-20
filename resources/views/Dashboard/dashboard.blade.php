@@ -8,7 +8,6 @@
                 <button class="btn btn-outline-dark" type="submit">Search</button>
             </form>
         </div>
-        {{-- @method('POST') --}}
         @if ($errors->any())
             <div class="alert alert-danger" style="height: 45px">
                 @foreach ($errors->all() as $message)
@@ -62,5 +61,4 @@
             </a>
         @endforeach
     </div>
-
 @endsection

@@ -3,9 +3,6 @@
 @section('container')
     <div class="row justify-content-center text-start">
         <div class="container text-center m-3">
-            {{-- <button type="button" class="btn btn-dark text-center">
-                Add Category
-            </button> --}}
             <a href="/category/create" class="btn btn-dark text-center">Add Category</a>
         </div>  
         <div class="col col-md-11">        
@@ -17,7 +14,6 @@
               </div>
               
               <div class="container text-end mt-3">
-                {{-- <button type="button" class="btn btn-dark"> --}}
                     <a href="/category/view-update/{{ $category->id }}" class="btn btn-dark">UPDATE</a>
               
                 <a href="{{ route('category.destroy',$category->id) }}" class="btn btn-danger">DELETE</a>
