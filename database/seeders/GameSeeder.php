@@ -160,5 +160,29 @@ class GameSeeder extends Seeder
             'description' => 'A top down shooter game fighting against large swarms of insects alone, or recruit friends to fight along side you! Buy and craft new equipment to help you rid the world of the swarm!',
             'positive' => 0
         ]);
+        Game::create([
+            'title' => 'Hearts of Iron IV',
+            'category_id' => 2,
+            'price' => 350999,
+            'thumbnail' => 'HeartsofIronIV.jpg',
+            'description' => 'Victory is at your fingertips! Your ability to lead your nation is your supreme weapon, the strategy game Hearts of Iron IV lets you take command of any nation in World War II; the most engaging conflict in world history.',
+            'positive' => 0
+        ]);
+        Game::create([
+            'title' => 'Dune: Spice Wars',
+            'category_id' => 2,
+            'price' => 299999,
+            'thumbnail' => 'dune-spice-wars.jpg',
+            'description' => 'A 4X real-time strategy game from the developers of the critically acclaimed Northgard. Set in Frank Herbert’s groundbreaking Dune universe, you must lead your faction and battle for control and dominance over the harsh desert planet of Arrakis.',
+            'positive' => 0
+        ]);
+        Game::create([
+            'title' => 'Valheim',
+            'category_id' => 5,
+            'price' => 108999,
+            'thumbnail' => 'Valheim.jpg',
+            'description' => 'A brutal exploration and survival game for 1-10 players, set in a procedurally-generated purgatory inspired by viking culture. Battle, build, and conquer your way to a saga worthy of Odin’s patronage!',
+            'positive' => 0
+        ]);
     }
 }
