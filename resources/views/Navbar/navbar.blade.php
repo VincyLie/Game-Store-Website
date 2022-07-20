@@ -3,7 +3,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <img src="/assets/icon.png" alt="" height="30px" width="30px">
             <ul class="nav md-mb-0 justify-content-center col-lg-auto me-lg-auto">
-                <li><a href="/dashboard" class="nav-link link-dark px-3">Dashboard</a></li>
+                <li><a href="/" class="nav-link link-dark px-3">Dashboard</a></li>
                 <li><a href="/cart" class="nav-link link-dark px-3">Cart</a></li>
                 @if ($user)
                     @if ($role_id == '1')

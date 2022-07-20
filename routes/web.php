@@ -22,13 +22,12 @@ use App\Http\Controllers\ReviewController;
 //Register and Login 
 Route::get('/register', [LoginController::class,'tampilanRegister'])->middleware('guest');
 Route::post('/register', [LoginController::class,'Register']);
-Route::get('/', [LoginController::class,'tampilanLogin']);
 Route::get('/login', [LoginController::class,'tampilanLogin'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'Login']);
 Route::get('/logout', [LoginController::class,'Logout'])->middleware('auth');
 
 //Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index']);
 //Search
 Route::get('/dashboard/search', [DashboardController::class, 'search']);
 //GameDetail
