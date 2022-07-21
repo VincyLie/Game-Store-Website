@@ -29,7 +29,7 @@
                             </div>
                             @method('POST')
                             @if ($errors->any())
-                                <div class="alert alert-danger" style="height: 45px">
+                                <div class="alert alert-danger" style="height: 55px;">
                                     @foreach ($errors->all() as $message)
                                         {{ $message }}
                                     @endforeach
