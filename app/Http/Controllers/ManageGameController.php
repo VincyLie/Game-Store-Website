@@ -29,20 +29,7 @@ class ManageGameController extends Controller
         ]);
         //Upload Thumbnail
         $thumbnail_file = $game->thumbnail->getClientOriginalName();
-        // $game->thumbnail->move(public_path('assets'), $thumbnail_file);
         $game->thumbnail->storeAs('/public/assets', $thumbnail_file);
-        //Check Category 
-        // $category_id=0;
-        // $categories = Category::all();
-        // foreach($categories as $category){
-        //     if($category->name == $validation['category']){
-        //         $category_id = $category->id;
-        //     }
-        // }
-        // if($category_id==0){
-        //     return redirect()->back()->with('error','Category does not exist!');
-        // }
-        // else{
             //Create Game
             $success = Game::create([
                 'title' => $game->title,
@@ -108,18 +95,6 @@ class ManageGameController extends Controller
             'slides' => 'required',
             'description' => 'required|min:10'
         ]);
-        //Check Category 
-        // $category_id=0;
-        // $categories = Category::all();
-        // foreach($categories as $category){
-        //     if($category->name == $game->category){
-        //         $category_id = $category->id;
-        //     }
-        // }
-        // if($category_id=0){
-        //     return redirect()->back()->with('error','Category does not exist!');
-        // }
-        // else{
             $NewGame = Game::find($id);
             Storage::delete('/public/assets/'.$NewGame->thumbnail);
             foreach ($NewGame->slides as $slide) {
@@ -139,7 +114,6 @@ class ManageGameController extends Controller
              //Upload Slides
             foreach($game->file('slides') as $slide){
                 $slide_file = $slide->getClientOriginalName();
-                // $slide->move(public_path('assets'),$slide_file);
                 $slide->storeAs('/public/assets', $slide_file);
                 Slide::insert([
                     'game_id' => $id,

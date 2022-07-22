@@ -49,7 +49,7 @@ class LoginController extends Controller
         //autentikasi user 
         if(Auth::attempt($validator,$remember)){
             $request->session()->regenerate();
-            return redirect('/dashboard');
+            return redirect('/');
         }
         else{
             return redirect('login')->withErrors('Login Failed! Please try again!');
@@ -60,7 +60,7 @@ class LoginController extends Controller
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect('/dashboard');
+            return redirect('/');
         }
     }
 }

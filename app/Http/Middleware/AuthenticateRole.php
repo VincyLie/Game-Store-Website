@@ -21,7 +21,7 @@ class AuthenticateRole
             return $next($request);
         }
         else{
-            return redirect('/dashboard')->with('error','You are not allowed to access the route!');
+            return redirect('/')->with('error','You are not allowed to access the route!');
        }
     }
 }
