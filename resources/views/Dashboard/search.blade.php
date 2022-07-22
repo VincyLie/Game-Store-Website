@@ -28,7 +28,7 @@
         @endforeach
         <div class="column d-flex justify-content-end">
             <div class="mx-4">
-                {{ $games->links() }}
+                {{ $games->appends($_GET)->links() }}
             </div>
         </div>
     </div>
