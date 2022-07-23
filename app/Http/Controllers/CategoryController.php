@@ -120,7 +120,7 @@ class CategoryController extends Controller
     {
         $Category = Category::find($id);
         $games = $Category->game;
-        foreach ($games as $game) {
+        foreach ($games as $game) { 
             Storage::delete('/public/assets/'.$game->thumbnail);
             foreach ($game->slides as $slide) {
             Storage::delete('/public/assets/'.$slide->name);
