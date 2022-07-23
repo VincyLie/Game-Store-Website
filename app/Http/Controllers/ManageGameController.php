@@ -134,6 +134,7 @@ class ManageGameController extends Controller
             Storage::delete('/public/assets/'.$game->thumbnail);
             foreach ($game->slides as $slide) {
                 Storage::delete('/public/assets/'.$slide->name);
+                $slide->delete();
             }
             return redirect()->route('game.edit');
         }

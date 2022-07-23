@@ -11,14 +11,17 @@ class UserAuthController extends Controller
 {
     //
     public function register(Request $request){
-        $data = $request->validate([
+        $request->validate([
             'name' => 'required',
             'email' => 'required|email:rfc,dns',
             'password' => 'required|min:8',
             'confirmpassword' => 'required|same:password'
         ]);
-        $data['password'] = bcrypt($request->password);
-        $user = User::insert($data);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
         $token = $user->createToken('API Token')->accessToken;
         if($user){
             return response(['user' => $user, 'token' => $token]);
